@@ -1,9 +1,9 @@
-import { useState, useEffect } from 'react';
-import type { Producto } from '../../services/ecommerce/productos.services';
-import ProductCard from '../../components/ProductCard';
-import { productosService } from '../../services/ecommerce/productos.services';
+import { useState, useEffect } from "react";
+import type { Producto } from "../../services/ecommerce/productos.services";
+import ProductCard from "../../components/ProductCard";
+import { productosService } from "../../services/ecommerce/productos.services";
 
-const CATEGORIAS = ['smartphones', 'laptops', 'tablets', 'groceries'];
+const CATEGORIAS = ["smartphones", "laptops", "tablets", "groceries"];
 
 export default function Home() {
   const [productos, setProductos] = useState<Producto[]>([]);
@@ -16,7 +16,7 @@ export default function Home() {
         const productosData = await productosService.obtenerProductos();
         setProductos(productosData || []);
       } catch (error) {
-        console.error('Error al obtener productos:', error);
+        console.error("Error al obtener productos:", error);
         setProductos([]);
       } finally {
         setLoading(false);
@@ -87,4 +87,3 @@ export default function Home() {
     </div>
   );
 }
-
